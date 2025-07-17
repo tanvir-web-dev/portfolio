@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="Icon/favicon.ico" type="image/x-icon" />
+  <title>About Us</title>
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --nav-bg: #fff;
+      --container-bg: #fff;
+      --link-color: #007bff;
+      --link-hover: #0056b3;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --nav-bg: #1e1e1e;
+      --container-bg: #1e1e1e;
+      --link-color: #3399ff;
+      --link-hover: #66ccff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--link-color);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 2rem auto;
+      background: var(--container-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .toggle-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1rem;
+      user-select: none;
+      color: var(--text-color);
+    }
+
+    .toggle-switch input[type="checkbox"] {
+      margin-left: .5rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark mode toggle -->
+  <div class="toggle-switch">
+    <label for="darkModeToggle">
+      Dark Mode
+      <input type="checkbox" id="darkModeToggle" />
+    </label>
+  </div>
+
+  <!-- Navigation bar -->
+  <nav>
+    <a href="index.html"><b>Home</b></a>
+    <a href="catagory.html"><b>Shop_by_Catagory</b></a>
+    <a href="myaccount.html"><b>My Account</b></a>
+    <a href="aboutus.html"><u><b>About Us</b></u></a>
+  </nav>
+
+  <!-- Main About Us content -->
+  <main>
+    <h1>About Us</h1>
+    <p>
+      Welcome to Our Website!  
+      <br><br>
+      We are dedicated to providing high-quality products and services to our valued customers. Our mission is to make online shopping simple, secure, and enjoyable for everyone.
+    </p>
+    <p>
+      <strong>Our Team:</strong>  
+      <br>
+      Founded by Abdullah Tanvir in 2025, our team has grown into a diverse group of passionate people who care deeply about our customers.
+    </p>
+    <p>
+      <strong>Contact Us:</strong><br>
+      Email: tanvir.business.official.0@gmail.com<br>
+      Phone: +880 1692*****7
+    </p>
+    <p>
+      Thank you for choosing us!
+    </p>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
+</body>
+</html>

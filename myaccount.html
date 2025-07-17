@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="Icon/favicon.ico" type="image/x-icon" />
+  <title>My Account</title>
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --nav-bg: #fff;
+      --container-bg: #fff;
+      --link-color: #007bff;
+      --link-hover: #0056b3;
+      --button-bg-login: #28a745;
+      --button-hover-login: #218838;
+      --button-bg-create: #007bff;
+      --button-hover-create: #0056b3;
+      --button-bg-logout: #dc3545;
+      --button-hover-logout: #a71d2a;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --nav-bg: #1e1e1e;
+      --container-bg: #1e1e1e;
+      --link-color: #3399ff;
+      --link-hover: #66ccff;
+      --button-bg-login: #3ddc84;
+      --button-hover-login: #28a745;
+      --button-bg-create: #3399ff;
+      --button-hover-create: #007acc;
+      --button-bg-logout: #f66a6a;
+      --button-hover-logout: #dc3545;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--link-color);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    .container {
+      background: var(--container-bg);
+      border-radius: 12px;
+      padding: 2.5rem 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 90%;
+      margin: 3rem auto;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    p.message {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    a.button,
+    button.button {
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      min-width: 140px;
+      border: none;
+    }
+
+    a.button.login {
+      background-color: var(--button-bg-login);
+    }
+    a.button.login:hover {
+      background-color: var(--button-hover-login);
+    }
+
+    a.button.create {
+      background-color: var(--button-bg-create);
+    }
+    a.button.create:hover {
+      background-color: var(--button-hover-create);
+    }
+
+    button.button.logout {
+      background-color: var(--button-bg-logout);
+    }
+    button.button.logout:hover {
+      background-color: var(--button-hover-logout);
+    }
+
+   
+    /* Toggle switch (slider style) */
+    .toggle-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-color);
+      user-select: none;
+    }
+    
+
+    .toggle-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      -webkit-appearance: none;
+      background: #ccc;
+      outline: none;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked {
+      background: #4caf50;
+    }
+
+    .toggle-switch input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked::before {
+      left: 21px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Toggle switch -->
+  <div class="toggle-switch">
+    <label for="darkModeToggle">
+      <input type="checkbox" id="darkModeToggle" /> Dark Mode
+    </label>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html"><b>Home</b></a>
+    <a href="catagory.html"><b>Shop_by_Catagory</b></a>
+    <a href="myaccount.html"><u><b>My Account</b></u></a>
+    <a href="aboutus.html"><b>About Us</b></a>
+  </nav>
+
+  <!-- Page content -->
+  <main class="container">
+    <h1>My Account</h1>
+
+    <!-- Not logged in -->
+    <div id="notLoggedInContent">
+      <p class="message">You are not connected with an account yet. Please login or create a new account below.</p>
+      <div class="buttons">
+        <a href="login.html" class="button login" target="_blank">Login</a>
+        <a href="createanaccount.html" class="button create" target="_blank">Create Account</a>
+      </div>
+    </div>
+
+    <!-- Logged in -->
+    <div id="loggedInContent" style="display:none;">
+      <p class="message" id="welcomeMessage"></p>
+      <button class="button logout" id="logoutButton">Logout</button>
+    </div>
+  </main>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+
+    // Login state
+    const notLoggedInContent = document.getElementById('notLoggedInContent');
+    const loggedInContent = document.getElementById('loggedInContent');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    const logoutButton = document.getElementById('logoutButton');
+
+    function checkLogin() {
+      const username = localStorage.getItem('username');
+      if (username) {
+        notLoggedInContent.style.display = 'none';
+        loggedInContent.style.display = 'block';
+        welcomeMessage.textContent = `Welcome back, ${username}!`;
+      } else {
+        notLoggedInContent.style.display = 'block';
+        loggedInContent.style.display = 'none';
+      }
+    }
+
+    logoutButton.addEventListener('click', () => {
+      localStorage.removeItem('username');
+      checkLogin();
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const loginUser = params.get('loginUser');
+    if (loginUser) {
+      localStorage.setItem('username', loginUser);
+      history.replaceState(null, '', window.location.pathname);
+    }
+
+    checkLogin();
+  </script>
+</body>
+</html>

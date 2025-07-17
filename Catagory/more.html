@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="../Icon/favicon.ico" type="image/x-icon" />
+  <title>Something went wrong!</title>
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --nav-bg: rgba(255, 255, 255, 0.7);
+      --nav-blur: blur(8px);
+      --link-color: #007bff;
+      --link-hover: #0056b3;
+      --hero-bg: #fff;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --nav-bg: rgba(30, 30, 30, 0.7);
+      --link-color: #3399ff;
+      --link-hover: #66ccff;
+      --hero-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      backdrop-filter: var(--nav-blur);
+      -webkit-backdrop-filter: var(--nav-blur);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--link-color);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    .zhero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--hero-bg);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .zhero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .zhero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    /* Toggle switch (slider style) */
+    .toggle-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-color);
+      user-select: none;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+    }
+
+    body.dark-mode .toggle-switch {
+      background: rgba(30, 30, 30, 0.8);
+    }
+
+    .toggle-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      -webkit-appearance: none;
+      background: #ccc;
+      outline: none;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked {
+      background: #4caf50;
+    }
+
+    .toggle-switch input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked::before {
+      left: 21px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark mode toggle -->
+  <div class="toggle-switch">
+    <input type="checkbox" id="darkModeToggle" />
+    <label for="darkModeToggle">Dark Mode</label>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="../index.html"><b>Home</b></a>
+    <a href="../catagory.html"><u><b>Shop_by_Catagory</b></u></a>
+    <a href="more.html" style="color: #4caf50;"><b>More</b></a>
+    <a href="../myaccount.html"><b>My Account</b></a>
+    <a href="../aboutus.html"><b>About Us</b></a>
+  </nav>
+
+  <!-- Zhero content -->
+  <main class="zhero">
+    <h1>The page isn't available right now...!</h1>
+    <p> <a href="../catagory.html">Go Back!</a> </p>
+  </main>
+
+  <script>
+    // Dark mode toggle
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
+</body>
+</html>

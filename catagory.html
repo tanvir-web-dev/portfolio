@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="Icon/favicon.ico" type="image/x-icon" />
+  <title>Categories</title>
+  <style>
+    :root {
+      --bg-color: #f7f7f7;
+      --text-color: #222;
+      --nav-bg: rgba(255, 255, 255, 0.7);
+      --nav-blur: blur(8px);
+      --link-color: #007bff;
+      --link-hover: #0056b3;
+      --card-bg: #fff;
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --nav-bg: rgba(30, 30, 30, 0.7);
+      --link-color: #3399ff;
+      --link-hover: #66ccff;
+      --card-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: var(--nav-bg);
+      backdrop-filter: var(--nav-blur);
+      -webkit-backdrop-filter: var(--nav-blur);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      margin-right: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: var(--link-color);
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-hover);
+    }
+
+    .toggle-switch {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1rem;
+      color: var(--text-color);
+      user-select: none;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+    }
+
+    body.dark-mode .toggle-switch {
+      background: rgba(30, 30, 30, 0.8);
+    }
+
+    .toggle-switch input[type="checkbox"] {
+      width: 40px;
+      height: 20px;
+      -webkit-appearance: none;
+      background: #ccc;
+      outline: none;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked {
+      background: #4caf50;
+    }
+
+    .toggle-switch input[type="checkbox"]::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .toggle-switch input[type="checkbox"]:checked::before {
+      left: 21px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      flex: 1;
+    }
+
+    .category-card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .category-card a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-size: 1.2rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .category-card a:hover {
+      color: var(--link-hover);
+    }
+
+    .category-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Toggle switch -->
+  <div class="toggle-switch">
+    <input type="checkbox" id="darkModeToggle" />
+    <label for="darkModeToggle">Dark Mode</label>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html"><b>Home</b></a>
+    <a href="catagory.html"><u><b>Shop_by_Catagory</b></u></a>
+    <a href="myaccount.html"><b>My Account</b></a>
+    <a href="aboutus.html"><b>About Us</b></a>
+  </nav>
+
+  <!-- Categories -->
+  <main class="categories">
+    <div class="category-card">
+      <a href="Catagory/home&living.html">Home & Living</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/foods.html">Foods</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/health.html">Health</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/clothing.html">Clothing</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/books.html">Books</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/sports.html">Sports</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/electronics.html">Electronics</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/computers.html">Computers</a>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/beauty.html">Beauty</a><br>
+    </div>
+    <div class="category-card">
+      <a href="Catagory/more.html">More</a>
+    </div>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+  </script>
+
+</body>
+</html>
